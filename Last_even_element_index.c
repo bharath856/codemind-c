@@ -1,19 +1,19 @@
 #include<stdio.h>
-int main()
-{
-    int k,v[2004],l,r;
-    scanf("%d",&l);
-    for(k=0;k<l;k++)
+int main(){
+    int n,i,max=0,k;
+    scanf("%d",&n);
+    int arr[n];
+    for(i=0;i<n;i++)
     {
-        scanf("%d",&v[k]);
+        scanf("%d",&arr[i]);
     }
-    for(k=l-1;k>=0;k--)
+    for(i=n-1;i>=0;i--)
     {
-        if(v[k]%2==0)
+        if(arr[i]%2==0)
         {
-            r=k;
+            printf("%d",i);
             break;
+            
         }
     }
-    printf("%d",r);
 }
