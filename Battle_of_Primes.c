@@ -1,37 +1,25 @@
-
-   
 #include<stdio.h>
-int p(int num)//
-{
-	int i,c=0;
-	for(i=1;i<=num;i++)
-	{
-		if(num%i==0)
-		{
-			c++;	
-		}	
-	}
-	if(c==2)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-	
-}
 int main()
 {
-    int n1,n2,n3,vk,s;
-    scanf("%d%d",&n1,&n2);
-    s=n1+n2;
-    for(vk=s+1;;vk++)
+    int n1,n2,i,j,k=0,c=0;
+    scanf("%d",&n1);
+    scanf("%d",&n2);
+    for(i=(n1+n2)+1;;i++)
     {
-        if(p(vk))
+        c=0;
+        for(j=1;j<=i;j++)
         {
+            if(i%j==0)
+            {
+                c++;
+            }
+        }
+        if(c==2)
+        {
+            k=i;
             break;
         }
     }
-    printf("%d",vk-s);
+    printf("%d",k-(n1+n2));
+    return 0;
 }
