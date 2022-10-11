@@ -2,27 +2,25 @@
 #include<math.h>
 int main()
 {
-    int v,r,k,n,l=0,j;
-    scanf("%d %d",&r,&v);
-    for(k=r;k<=v;k++)
+    int m,n,i,j,count=0,c=0;
+    scanf("%d%d",&n,&m);
+    if(n==1)
+    n=2;
+    for(i=n;i<=m;i++)
     {
-        n=0;
-        if(k==1)
+        count=0;
+        for(j=2;j<=sqrt(i);j++)
         {
-            continue;
-        }
-        for(j=2;j<=sqrt(k);j++)
-        {
-            if(k%j==0)
+            if(i%j==0)
             {
-                n++;
-                break;
+               count++;
             }
         }
-        if(n==0)
+        if(count==0)
         {
-            l++;
+            c++;
         }
     }
-    printf("%d",l);
+    printf("%d",c);
+    return 0;
 }
