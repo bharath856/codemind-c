@@ -1,40 +1,33 @@
 #include<stdio.h>
 int main()
 {
-    int n;
+    int n,a=0,b=1,c,j=0,i,arr[100];
     scanf("%d",&n);
-    int arr[100],i;
-    int a=0,b=1,c;
-    int diff1,diff2;
-    for (i=0; i<100; i++)
+    for(i=1;i<=n;i++)
     {
-        arr[i]=a;
+        arr[j]=a;
         c=a+b;
         a=b;
         b=c;
+        j++;
     }
-    for (i=0; i<100; i++)
+    for(i=0;i<n;i++)
     {
-        if (n<arr[i])
+        if(arr[i]>n)
         {
-           diff1=n-arr[i-1];
-           diff2=arr[i]-n;
-           if (diff1>diff2)
-           {
-               printf("%d",arr[i]);
-               break;
-           }
-           else if (diff1<diff2)
-           {
-               printf("%d",arr[i-1]);
-               break;
-           }
-           else if (diff1==diff2)
-           {
-               printf("%d %d",arr[i-1],arr[i]);
-               break;
-           }
+            break;
         }
     }
-    return 0;
+    if(n-arr[i-1] == arr[i]-n)
+    {
+        printf("%d %d",arr[i-1],arr[i]);
+    }
+    else if(n-arr[i-1] > arr[i]-n)
+    {
+        printf("%d",arr[i]);
+    }
+    else
+    {
+        printf("%d ",arr[i-1]);
+    }
 }
