@@ -1,31 +1,23 @@
 #include<stdio.h>
-int self(int num)
+int fun(int n)
 {
-    int flag=0;
-    int temp=num,r;
-    while (temp>0)
+    int d,c=0,cc=0,temp;
+    temp=n;
+    while(n)
     {
-        r=temp%10;
-        if (r==0)
+        d=n%10;
+        if(d==0)
         {
-            flag=0;
-            break;
+            return 0;
         }
-        else
+        n=n/10;
+        c++;
+        if(temp%d==0)
         {
-            if (num%r==0)
-            {
-                flag=1;
-            }
-            else
-            {
-                flag=0;
-                break;
-            }
+            cc++;
         }
-        temp=temp/10;
     }
-    if (flag==1)
+    if(c==cc)
     {
         return 1;
     }
@@ -36,14 +28,13 @@ int self(int num)
 }
 int main()
 {
-    int a,b;
-    scanf("%d%d",&a,&b);
-    for (a; a<=b; a++)
+    int m,n,i;
+    scanf("%d%d",&m,&n);
+    for(i=m;i<=n;i++)
     {
-        if (self(a)==1)
+        if(fun(i))
         {
-            printf("%d ",a);
+            printf("%d ",i);
         }
     }
-    return 0;
 }
