@@ -1,34 +1,36 @@
 #include<stdio.h>
+int isitprime(int x)
+{
+    int j,fc=0;
+    for(j=1;j<=x;j++)
+    {
+        if(x%j==0)
+        {
+            fc++;
+        }
+    }
+    if(fc==2)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
 int main()
 {
-    int a;
-    scanf("%d",&a);
-    int i,j,count=0,c=0;
-    if (a>=1 && a<=10000)
+    int n,i,res=0;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
     {
-        for (i=1; i<=a; i++)
+        if(n%i==0)
         {
-            c=0;
-            if (a%i==0)
+            if(isitprime(i))
             {
-                for (j=1; j<=i; j++)
-                {
-                    if (i%j==0)
-                    {
-                        c+=1;
-                    }
-                }
-                if (c==2)
-                {
-                    continue;
-                }
-                else
-                {
-                    count+=1;
-                }
+                res++;
             }
         }
     }
-    printf("%d",count);
-    return 0;
+    printf("%d",res);
 }
